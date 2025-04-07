@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/*
+    1. Posicionamiento
+    2. Modelo de caja
+    3. Tipografía
+    4. Visuales
+    5. Otros
+*/
+::-webkit-scrollbar {
+  width: 0.8rem;
+  border-radius: 4px;
+  background: var(--color-tertiary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}
+
+
+/* Modo Claro */
+:root {
+  --color-primary: #1A1838;
+  --color-secondary: #202938;
+  --color-tertiary: #19212c;
+  --color-accent: #7C3AED;
+  --color-text: #F3F4F6;
+  --color-background: #111728;
+
+  --typography-primary: "Montserrat", sans-serif;
+  --size-border: .2rem;
+}
+
+/* Modo Oscuro */
+[data-theme="dark"] {
+  --color-primary: #E5E7EB;
+  --color-secondary: #D1D5DB;
+  --color-tertiary: #9CA3AF;
+  --color-accent: #9B5DF7;
+  --color-text: #1A1838;
+  --color-background: #F9FAFB;
+}
+
+/* Modo Alto Contraste */
+[data-theme="high-contrast"] {
+  --color-primary: #FFFFFF;
+  --color-secondary: #F2F2F2;
+  --color-tertiary: #BDBDBD;
+  --color-accent: #FFB800;
+  --color-text: #000000;
+  --color-background: #FFFFFF;
+}
+/* Disable the animations in case the user has configured the mode without animation.  */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
+}
+/* Reset the margin and padding of all tags */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* We avoid problems with images */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* optional */
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* We reset the links to work as boxes */
+a {
+  display: block;
+}
+
+/* except those found in paragraphs */
+p a {
+  display: inline;
+}
+
+/* We remove the dots from the <li>.  */
+li {
+  list-style-type: none;
+}
+
+/* We configure soft anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Deactivate default styles of the main text labels */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Avoiding problems with pseudo-elements in quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* We configure the text we select */
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+/* We level typography and form placement problems. */
+form, input, textarea, select, button, label {
+  font-family: var(--typography-primary);
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  display: block;
+  color: inherit;
+  /* Optional */
+  appearance: none;
+}
+
+/* We reset the tables */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Avoid SVG problems */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuration for the entire website */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--typography-primary);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  /* Optional */
+  line-height: 1.4em;
+  hyphens: auto;
+  /* To make the typography look more defined */
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
