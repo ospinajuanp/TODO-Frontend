@@ -10,7 +10,7 @@ const TasksPage = () => {
 
     useEffect(() => {
         getTasks();
-    }, [tasks]);
+    }, []);
 
     if (tasks.length === 0) {
         return (
