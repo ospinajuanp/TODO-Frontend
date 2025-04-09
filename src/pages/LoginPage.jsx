@@ -18,11 +18,11 @@ const LoginPage = () => {
     });
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/tasks');
-        }
-    }, [isAuthenticated]);
+    // useEffect(() => {
+    //     if (isAuthenticated) {
+    //         navigate('/tasks');
+    //     }
+    // }, [isAuthenticated]);
 
     return (
         <div className='login'>
@@ -43,8 +43,8 @@ const LoginPage = () => {
                     {showPassword && <FaRegEyeSlash className={`login__password--icon ${showPassword ? 'active' : 'inactive'}`}onClick={togglePasswordVisibility} />}
                 </div>
                     {errors.password && <span className='login__error'>Password is required</span>}
-                <button className='login__button' type='submit'>Register</button>
-                <p>Don't have an account?   <span className="button" onClick={() => navigate('/register')}>Register</span></p>
+                <button className='login__button' type='submit'>Login</button>
+                <p>Don't have an account?   <Link className="button" to={'/register'}>Register</Link></p>
             </form>
         </div>
     );

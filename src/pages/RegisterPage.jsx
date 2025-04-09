@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/authContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 
@@ -49,7 +49,7 @@ const RegisterPage = () => {
                 </div>
                     {errors.password && <span className='register__error'>Password is required</span>}
                 <button className='register__button' type='submit'>Register</button>
-                <p>Already have an account?   <span className="button" onClick={() => navigate('/login')}>Login</span></p>
+                <p>Already have an account?   <Link className="button" to="/login">Login</Link></p>
             </form>
         </div>
     );
