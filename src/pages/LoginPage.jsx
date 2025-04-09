@@ -18,11 +18,11 @@ const LoginPage = () => {
     });
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-    // useEffect(() => {
-    //     if (isAuthenticated) {
-    //         navigate('/tasks');
-    //     }
-    // }, [isAuthenticated]);
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/tasks');
+        }
+    }, [isAuthenticated]);
 
     return (
         <div className='login'>
