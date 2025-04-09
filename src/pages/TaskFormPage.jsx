@@ -1,14 +1,35 @@
 import { useForm } from 'react-hook-form';
 import { useTasks } from '../context/TasksContext';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import './TaskFormPage.css';
+import {  useEffect } from 'react';
 
 const TaskAddPage = () => {
-    const { register, handleSubmit } = useForm();
-    const { tasks, createTasks } = useTasks();
+    const { register, handleSubmit, setValue } = useForm();
+    const { createTasks, getTask, updateTask } = useTasks();
+    const Navigate = useNavigate();
+    const params = useParams();
+
+    useEffect(() => {
+        async function loadTask() {
+            if (params.id) {
+                const task = await getTask(params.id)
+                setValue('title', task.title);
+                setValue('description', task.description);
+                setValue('status', task.status);
+            }
+        }
+        loadTask();
+    }, [params.id]);
 
     const onSubmit = handleSubmit((data) => {
-        createTasks(data)
+        if (params.id) {
+            updateTask(params.id, data);
+        } else {
+            createTasks(data)
+        }
+        Navigate('/tasks');
     });
 
     return (
@@ -40,7 +61,7 @@ const TaskAddPage = () => {
                         <option value='completed'>Completed</option>
                     </select>
                 </div>
-                <button className='task__button' >Add Task</button>
+                <button className='task__button' >Save</button>
             </form>
         </div>
     );

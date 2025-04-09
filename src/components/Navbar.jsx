@@ -22,9 +22,9 @@ const Navbar = () => {
                             <h1 className=''>Welcome <span className='navbar__item--user'> {user?.name?.split(' ')[0]?.toLowerCase()}</span>
                             </h1>
                         </li>
-                        <li className='navbar__item'>
+                        {/* <li className='navbar__item'>
                             <Link className='link' to='/tasks'>Tasks</Link>
-                        </li>
+                        </li> */}
                         <li className='navbar__item'>
                             <Link className='link' to='/add-task'>New Task</Link>
                         </li>

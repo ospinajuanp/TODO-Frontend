@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTasks } from './../context/TasksContext';
+import TaskCard from '../components/TaskCard';
 
 import './TasksPage.css'
 
@@ -9,10 +10,14 @@ const TasksPage = () => {
 
     useEffect(() => {
         getTasks();
-    }, []);
+    }, [tasks]);
 
     if (tasks.length === 0) {
-        return <h1>No hay tareas</h1>
+        return (
+            <div className='tasks-container no-tasks'>
+                <h1 className='no-tasks'>No hay tareas</h1>
+            </div>
+        )
     }
 
     return (
@@ -20,12 +25,8 @@ const TasksPage = () => {
             <h1>Tasks Page</h1>
             <div className='tasks-list'>
                 {
-                    tasks.map((task, index) => (
-                        <div className='task' key={index}>
-                            <h2 className='task__title' >{task.title}</h2>
-                            <p className='task__description' >{task.description}</p>
-                            <label className={`task__status ${task.status}`} >{task.status}</label>
-                        </div>
+                    tasks.map((task) => (
+                        <TaskCard key={task._id} task={task} />
                     ))
                 }
             </div>
