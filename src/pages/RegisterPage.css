@@ -1,5 +1,6 @@
 .register{
     width: 100%;
+    min-width: 22.5rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -10,17 +11,21 @@
 
 .register__title{
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
 .register__form{
+    width: 100%;
+    max-width: 30rem;
     padding: 2rem;
     border-radius: .4rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     background-color: var(--color-secondary);
+    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.5);
+
 }
 
 .register__input{
@@ -30,6 +35,25 @@
     outline: none;
     background-color: var(--color-tertiary);
     color: var(--color-text);
+}
+.register__input::selection{
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+.register__input--password{
+    width: 100%;
+}
+.register__password--container{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+}
+.register__password--icon{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }
 
 .register__button{
@@ -44,4 +68,22 @@
 
 .register__button:hover{
     background-color: var(--color-accent);
+}
+
+.register__error{
+    /* background-color: var(--color-tertiary); */
+    color: red;
+    padding-left: .4rem;
+    margin-top: -1rem;
+}
+.error-api{
+    padding:0.2rem 1rem;
+    margin-top: 0rem;
+}
+.active{
+    display: block;
+}
+
+.inactive{
+    display: none;
 }
