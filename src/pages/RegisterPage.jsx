@@ -49,6 +49,7 @@ const RegisterPage = () => {
                 </div>
                     {errors.password && <span className='register__error'>Password is required</span>}
                 <button className='register__button' type='submit'>Register</button>
+                <p>Already have an account?   <span className="button" onClick={() => navigate('/login')}>Login</span></p>
             </form>
         </div>
     );
