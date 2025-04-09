@@ -8,6 +8,7 @@ import TaskFormPage from './pages/TaskFormPage';
 import ProfilePage from './pages/ProfilePage';
 import ErrorPage from './pages/ErrorPage';
 import ProtectedRoute from './ProtectedRoute';
+import Navbar from './components/Navbar';
 import { AuthProvider } from './context/authContext';
 import { TaskProvider } from './context/TasksContext';
 
@@ -18,6 +19,7 @@ const App = () => {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
+        <Navbar/>
           <Routes>
             <Route path="/" element={<HomePage/> } />
             <Route path="/login" element={<LoginPage/>} />
@@ -25,7 +27,7 @@ const App = () => {
             <Route path="*" element={<ErrorPage />} />
             <Route element={<ProtectedRoute />}>
                 <Route path="/tasks" element={<TasksPage />} />
-                <Route path="/tasks/new" element={<TaskFormPage />} />
+                <Route path="/add-task" element={<TaskFormPage />} />
                 <Route path="/task/:id" element={<TaskFormPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
             </Route>
